@@ -1,4 +1,4 @@
-// Should turn repeated code lines into functions!
+// Should use the class methods or - without OOP - turn repeated code lines into functions!
 
 import { faker } from '@faker-js/faker';
 
@@ -83,7 +83,7 @@ describe('Issue create', () => {
 
   // Test case 1. Bug issue creation
 
-  it('Should create a Bug issue and validate it successfully', () => {
+  it.only('Should create a Bug issue and validate it successfully', () => {
     // System finds modal for creating issue and does next steps inside of it
     cy.get('[data-testid="modal:issue-create"]').within(() => {
       // Type value to description input field
