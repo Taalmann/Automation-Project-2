@@ -83,7 +83,7 @@ describe('Issue create', () => {
 
   // Test case 1. Bug issue creation
 
-  it.only('Should create a Bug issue and validate it successfully', () => {
+  it('Should create a Bug issue and validate it successfully', () => {
     // System finds modal for creating issue and does next steps inside of it
     cy.get('[data-testid="modal:issue-create"]').within(() => {
       // Type value to description input field
@@ -165,6 +165,15 @@ describe('Issue create', () => {
 
   });
 
+  it('Should remove unnecessary spaces from the issue title on the board view', () => {
+  /* On issue details view all extra/unnecessary spaces remain */
+  const new_issue_title = 'Experimenting       with       spaces';
+
+  // Create a new issue (calls a function)
+
+  
+
+  });
 
   it('Should validate title is required field if missing', () => {
     // System finds modal for creating issue and does next steps inside of it

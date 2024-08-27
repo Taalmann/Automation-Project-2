@@ -61,5 +61,21 @@ describe('Issue details editing', () => {
     });
   });
 
+  it('Should check the dropdown Priority options', () => {
+    const expected_dropdown_length = 5;
+    const expected_dropdown_options = [];
+
+    getIssueDetailsModal().within(() => {
+      // I will finish it in the morning
+    });
+
+    it("Should be only characters in reporter's name", () => {
+
+    });
+
+  });
+
+
+
   const getIssueDetailsModal = () => cy.get('[data-testid="modal:issue-details"]');
 });
