@@ -190,7 +190,7 @@ describe('Issue create', () => {
     });
   });
 
-  it('Should remove unnecessary spaces from the issue title on the board view', () => {    
+  it('Should remove unnecessary trailing and leading spaces from the issue title on the board view', () => {    
     // Create a new issue
     IssueModal.createIssue(issueDetails);
     cy.wait(40000);
