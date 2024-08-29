@@ -8,7 +8,7 @@ import IssueModal from "../pages/IssueModal";
 
 const EXPECTED_AMOUNT_OF_ISSUES = '5';
 const issueDetails = {
-  title: 'Experimenting       with       spaces',
+  title: '   Experimenting with spaces   ',
   type: 'Bug',
   description: 'TEST_DESCRIPTION',
   assignee: 'Lord Gaben',
@@ -190,18 +190,17 @@ describe('Issue create', () => {
     });
   });
 
-  it('Should remove unnecessary spaces from the issue title on the board view', () => {
-    //const trimmed_title = issueDetails.title.trim();
-    const title_with_spaces = 'Experimenting       with       spaces';
-    const trimmed_title = title_with_spaces.trim();
-    
+  it('Should remove unnecessary spaces from the issue title on the board view', () => {    
     // Create a new issue
     IssueModal.createIssue(issueDetails);
     cy.wait(40000);
-  
-    // Assert that on the board all extra spaces in the title are removed 
-    cy.get('[data-testid="board-list:backlog"]').contains(trimmed_title);
-  
-    //cy.get('[data-testid="board-list:backlog"]').contains('Experimenting with spaces');
+    // Isn't currently working because of async nature of commands' running:
+    // IssueModal.ensureIssueIsCreated(5, issueDetails);
+
+    // Assert that on the board all extra spaces at the beginning and at the end of the title (i.e.in short description) are removed 
+    cy.get('[data-testid="board-list:backlog').within(() => {
+      cy.get('[data-testid="list-issue"]').first().find('p')
+      .contains(issueDetails.title.trim());
     });
+  });  
 });
